@@ -11,7 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace RedisSessionSample
+using StackExchange.Redis;
+
+namespace RedisCacheSample
 {
     public class Startup
     {
@@ -25,21 +27,29 @@ namespace RedisSessionSample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // 注册Redis分布式缓存服务
-            services.AddDistributedRedisCache(options => 
+            services.AddDistributedMemoryCache();
+
+            // 配置redis连接字符串，格式为 "[host or ip]:[port],password=[password][,[host or ip]:[port],password=[password]]"
+            services.AddStackExchangeRedisCache(options =>
             {
                 // 配置redis连接字符串，格式为 "[host or ip]:[port],password=[password][,[host or ip]:[port],password=[password]]"
-                options.Configuration = "192.168.199.129:6379,password=password";
+                //options.Configuration = "192.168.199.129:6379,password=password";
+
+                options.ConfigurationOptions= new StackExchange.Redis.ConfigurationOptions 
+                {
+                    DefaultDatabase = 8, // 指定默认数据库
+                    Password = "password", // 指定密码
+                    KeepAlive = 60, // 设置连接时间,单位为秒
+                    ConnectRetry = 3, // 重试次数
+                    ClientName = "RedisCacheSample", 
+                    AsyncTimeout = 1000,
+                    SyncTimeout = 1000,
+                    AbortOnConnectFail = true,
+                };
+                options.ConfigurationOptions.EndPoints.Add("192.168.199.129", 6379); // 指定服务地址
 
                 // 配置在redis中的实例名，即key的前缀
-                options.InstanceName = "RedisSessionSample.";
-            });
-
-            // 注册session服务
-            services.AddSession(options => 
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(10); // 会话滑动过期时间
-                options.Cookie.HttpOnly = true; // 设置为浏览器端js不可访问
+                options.InstanceName = "RedisCacheSample.";
             });
 
             services.AddControllers();
@@ -52,8 +62,6 @@ namespace RedisSessionSample
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseSession(); // 使用会话中间件
 
             app.UseRouting();
 
