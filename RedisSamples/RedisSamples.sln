@@ -17,11 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisQueueLib", "RedisQueue
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishSubscribe", "PublishSubscribe", "{C38FB1A2-72EE-4194-9A5E-E158E7040290}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPublishSample", "RedisPublishSample\RedisPublishSample.csproj", "{FFAFEF29-DBD9-43A4-817C-1E9C9242AC56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisPublishSample", "RedisPublishSample\RedisPublishSample.csproj", "{FFAFEF29-DBD9-43A4-817C-1E9C9242AC56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisSubscribeSample", "RedisSubscribeSample\RedisSubscribeSample.csproj", "{684A9E1D-10A3-4EC9-9084-5A1D1BFD9E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisSubscribeSample", "RedisSubscribeSample\RedisSubscribeSample.csproj", "{684A9E1D-10A3-4EC9-9084-5A1D1BFD9E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisPublishSubscribeLib", "RedisPublishSubscribeLib\RedisPublishSubscribeLib.csproj", "{49C8308A-D57E-4229-BE58-4C251DC9ECF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisPublishSubscribeLib", "RedisPublishSubscribeLib\RedisPublishSubscribeLib.csproj", "{49C8308A-D57E-4229-BE58-4C251DC9ECF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDistributedLockSample", "RedisDistributedLockSample\RedisDistributedLockSample.csproj", "{F6A4F7EC-E761-402F-8C01-1DA472EA5414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{49C8308A-D57E-4229-BE58-4C251DC9ECF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49C8308A-D57E-4229-BE58-4C251DC9ECF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49C8308A-D57E-4229-BE58-4C251DC9ECF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

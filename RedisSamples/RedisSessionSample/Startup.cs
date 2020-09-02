@@ -66,3 +66,5 @@ namespace RedisSessionSample
         }
     }
 }
+
+// https://stackexchange.github.io/StackExchange.Redis/Configuration
