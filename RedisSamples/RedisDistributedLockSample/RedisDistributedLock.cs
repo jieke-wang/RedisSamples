@@ -29,9 +29,19 @@ namespace RedisDistributedLockSample
             } while (true);
         }
 
-        public async Task ReleaseLock(string lockName, string appIdentity)
+        public async Task<bool> LockExtend(string lockName, string appIdentity, TimeSpan timeout)
         {
-            await _database.LockReleaseAsync(lockName, $"{appIdentity}");
+            return await _database.LockExtendAsync(lockName, appIdentity, timeout);
+        }
+
+        public async Task<bool> ReleaseLock(string lockName, string appIdentity)
+        {
+            return await _database.LockReleaseAsync(lockName, $"{appIdentity}");
+        }
+
+        public async Task<string> LockQuery(string lockName)
+        {
+            return await _database.LockQueryAsync(lockName);
         }
 
         protected virtual void Dispose(bool disposing)

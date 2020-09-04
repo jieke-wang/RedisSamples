@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisPublishSubscribeLib", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDistributedLockSample", "RedisDistributedLockSample\RedisDistributedLockSample.csproj", "{F6A4F7EC-E761-402F-8C01-1DA472EA5414}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisSample", "RedisSample\RedisSample.csproj", "{439A05B6-AD41-425C-B348-3B710C235CC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6A4F7EC-E761-402F-8C01-1DA472EA5414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{439A05B6-AD41-425C-B348-3B710C235CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{439A05B6-AD41-425C-B348-3B710C235CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{439A05B6-AD41-425C-B348-3B710C235CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{439A05B6-AD41-425C-B348-3B710C235CC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
