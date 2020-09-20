@@ -18,6 +18,11 @@ namespace RedisSample
             _database.StringSet(key, value, expiry);
         }
 
+        public void Append(string key, string value)
+        {
+            _database.StringAppend(key, value);
+        }
+
         public string Get(string key)
         {
             return _database.StringGet(key);

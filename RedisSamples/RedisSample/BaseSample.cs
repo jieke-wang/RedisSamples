@@ -16,7 +16,11 @@ namespace RedisSample
 
         protected BaseSample(string configuration, int db)
         {
-            _connection = ConnectionMultiplexer.Connect(configuration);
+            ConfigurationOptions configurationOptions =
+            ConfigurationOptions.Parse(configuration);
+            configurationOptions.AllowAdmin = true; // 开启支持模糊匹配
+
+            _connection = ConnectionMultiplexer.Connect(configurationOptions);
             _database = _connection.GetDatabase(db);
         }
 
@@ -63,6 +67,19 @@ namespace RedisSample
         public RedisType KeyType(string key)
         {
             return _database.KeyType(key);
+        }
+
+        /// <summary>
+        /// 模糊匹配key,使用*作为通配符,使用:作为分隔符,例如:basket:user_id:*
+        /// </summary>
+        public IEnumerable<RedisKey> SearchKeys(string key)
+        {
+            var endPoints = _connection.GetEndPoints();
+            var endPoint = endPoints[0];
+            var server = _connection.GetServer(endPoint);
+            var keys = server.Keys(_database.Database, key);
+
+            return keys;
         }
 
         protected virtual void Dispose(bool disposing)
